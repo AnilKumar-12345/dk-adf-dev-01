@@ -1,0 +1,61 @@
+{
+	"name": "pl_setVariable_storedprocedure",
+	"properties": {
+		"activities": [
+			{
+				"name": "adfpipelinedetails",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[dbo].[usp.adfpipelinedetails]",
+					"storedProcedureParameters": {
+						"adfname": {
+							"value": {
+								"value": "@pipeline().DataFactory",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"PIPELINE_RUNID": {
+							"value": {
+								"value": "@pipeline().RunId",
+								"type": "Expression"
+							},
+							"type": "String"
+						},
+						"pipelinename": {
+							"value": null,
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_sqlserver_source",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"variables": {
+			"ADFName": {
+				"type": "String"
+			},
+			"Pipeline_Name": {
+				"type": "String"
+			},
+			"Pipeline_Run_id": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2024-08-14T06:27:23Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

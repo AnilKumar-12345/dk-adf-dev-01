@@ -1,0 +1,30 @@
+{
+	"name": "ds_source_copyExcelSheet_Index",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_source_file_adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SheetNameIndex": {
+				"type": "int"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inputExcelfile.xlsx",
+				"folderPath": "source",
+				"fileSystem": "sourcegen2container"
+			},
+			"sheetIndex": {
+				"value": "@dataset().SheetNameIndex",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
