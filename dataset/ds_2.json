@@ -1,0 +1,32 @@
+{
+	"name": "ds_2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_source_file_adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SheetIndexName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().SheetIndexName",
+					"type": "Expression"
+				},
+				"folderPath": "indexMode",
+				"fileSystem": "sourcegen2container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

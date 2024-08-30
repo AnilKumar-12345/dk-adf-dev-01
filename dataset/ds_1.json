@@ -1,0 +1,29 @@
+{
+	"name": "ds_1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_source_file_adls",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"SheetIndex": {
+				"type": "int"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "inputExcelfile.xlsx",
+				"folderPath": "source",
+				"fileSystem": "sourcegen2container"
+			},
+			"sheetIndex": {
+				"value": "@dataset().SheetIndex",
+				"type": "Expression"
+			}
+		},
+		"schema": []
+	}
+}
