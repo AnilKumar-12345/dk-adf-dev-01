@@ -1,0 +1,23 @@
+{
+	"name": "ds_getMetaData1_copyLatestFile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_source_file_adls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "source",
+				"fileSystem": "sourcegen2container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
